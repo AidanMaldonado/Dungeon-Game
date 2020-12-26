@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>War Builder</title>
+  </head>
+  <body>
+    <section class="start">
+      <!-- Start button with optional continue button -->
+      <button id="start-btn">Start</button>
+    </section>
+    <section class="country">
+      <div class="cards">
+        <div class="card" id="faction1">
+          <div><img src="assets/faction1.png" /></div>
+          <div>
+            <h2>Sicordi</h2>
+
+            <p>
+              Warlords from the east have formed a coalition to conquer the
+              territories in Bavaria and split the loot.
+            </p>
+            <h3>Manpower: 200,000</h3>
+            <h3>Fuel: +4</h3>
+            <h3>Scrap: +4</h3>
+          </div>
+        </div>
+        <div class="card" id="faction2">
+          <div><img src="assets/faction2.png" /></div>
+          <div>
+            <h2>Ergonia</h2>
+            <p>
+              A group of peasants who wish to preserve their newfound wealth in
+              the collapsed nation of Bavaria.
+            </p>
+            <h3>Manpower: 300,000</h3>
+            <h3>Fuel: +1</h3>
+            <h3>Scrap: +7</h3>
+          </div>
+        </div>
+        <div class="card" id="faction3">
+          <div><img src="assets/faction3.png" /></div>
+          <div>
+            <h2>Old Bavaria</h2>
+
+            <p>
+              The nationalists of the old Bavarian nation have come together to
+              once again unite it and reclaim their formor glory.
+            </p>
+            <h3>Manpower: 500,000</h3>
+            <h3>Fuel: +6</h3>
+            <h3>Scrap: +2</h3>
+          </div>
+        </div>
+      </div>
+      <span id="arrow-right">></span>
+    </section>
+    <section class="game">
+      <p id="story-p">
+        Bavaria has fallen. The region is fractured and contested by multiple
+        factions. You are attempting to claim Bavaria for yourself and your
+        faction. Build the largest and most advanced army to conquer the region.
+      </p>
+
+      <div id="hud">
+        <button id="soldier">Soldiers</button>
+        <button id="map">Map</button>
+        <button id="mat">Materials</button>
+        <button id="tech">Tech Tree</button>
+      </div>
+      <div class="map-section">
+        <div class="map-container">
+          <div class="grid-item" id="grid-item-1"></div>
+          <div class="grid-item" id="grid-item-2"></div>
+          <div class="grid-item" id="grid-item-3"></div>
+          <div class="grid-item" id="grid-item-4"></div>
+          <div class="grid-item" id="grid-item-5"></div>
+          <div class="grid-item" id="grid-item-6"></div>
+          <div class="grid-item" id="grid-item-7"></div>
+          <div class="grid-item" id="grid-item-8"></div>
+          <div class="grid-item" id="grid-item-9"></div>
+        </div>
+        <h1>Key</h1>
+        <h1>
+          H = Hills <br />
+          E = Ergonia <br />
+          S = Sicordi <br />
+          B = Old Bavaria
+        </h1>
+      </div>
+      <div class="mat-section">
+        <div class="stats">
+          <h1 id="pop">Population: 0</h1>
+          <h1 id="fuel">Fuel: 0</h1>
+          <h1 id="scrap">Scrap: 0</h1>
+        </div>
+        <button id="scrap-btn">Collect Scrap</button>
+        <button id="fuel-btn">Drill for Oil</button>
+      </div>
+      <div class="soldier-section">
+        <div class="current-soldier">
+          <h1>Mk1<span id="soldier-upgrade">+</span></h1>
+          <h1>Gun:</h1>
+          <h1>Armor</h1>
+          <h1>Equipment</h1>
+        </div>
+        <div class="soldier-btns">
+          <button>Guns</button>
+          <button>Armor</button>
+          <button>Equipment</button>
+        </div>
+
+        <div class="guns"></div>
+        <div class="armor"></div>
+        <div class="equipment"></div>
+      </div>
+      <div class="tech-section">
+        <button>Scrap Harvester +2s/sec</button>
+        <button>Oil Drill +2f/sec</button>
+        <button>Wheat Production +2p/Sec</button>
+        <button>Build Homes +2p/Sec</button>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
