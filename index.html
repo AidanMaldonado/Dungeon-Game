@@ -12,8 +12,10 @@
       <div>
         <h1>Dungeon Master</h1>
         <button id="start-btn">Start</button>
+        <button id="help-btn">Help</button>
       </div>
     </section>
+    <!-- Pick the location/difficulty of the game -->
     <section class="country">
       <div class="cards">
         <div class="card" id="faction1">
@@ -36,15 +38,16 @@
           <div>
             <h2>Ergonia</h2>
             <p>
-              A group of peasants who wish to preserve their newfound wealth in
-              the collapsed nation of Bavaria.
+              A decent sized town that is home to a number of locals and the
+              occasional traveling merchant. A solid variety of interesting folk
+              will attempt to conquer the dungeon.
             </p>
 
             <h3>
-              -For players with a variable playstyle. The difficulty is based on
-              how you are performing.
+              -For the average player. The difficulty is based on how you are
+              performing.
             </h3>
-            <h3>-Dynamic</h3>
+            <h3>-Dynamic(Recommended)</h3>
           </div>
         </div>
         <div class="card" id="faction3">
@@ -58,11 +61,14 @@
               enter the dungeon and attempt to conquer it.
             </p>
 
-            <h3>-For players who are more active</h3>
-            <h3>-Hard</h3>
+            <h3>
+              -For players who are more active and want extreme difficulty
+            </h3>
+            <h3>-Insane</h3>
           </div>
         </div>
       </div>
+      <!-- Cycles cards -->
       <span id="arrow-right">></span>
     </section>
     <section class="game">
@@ -74,27 +80,68 @@
 
       <div id="hud">
         <button id="map">Map</button>
+        <button id="town">Town</button>
+        <button id="treasure">Treasure(TBD)</button>
       </div>
-      <div class="map-section">
-        <div class="map-container">
-          <div class="grid-item" id="grid-item-1"></div>
-          <div class="grid-item" id="grid-item-2"></div>
-          <div class="grid-item" id="grid-item-3"></div>
-          <div class="grid-item" id="grid-item-4"></div>
-          <div class="grid-item" id="grid-item-5"></div>
-          <div class="grid-item" id="grid-item-6"></div>
-          <div class="grid-item" id="grid-item-7"></div>
-          <div class="grid-item" id="grid-item-8"></div>
-          <div class="grid-item" id="grid-item-9"></div>
+
+      <div class="town-section">
+        <h2>You dawn your cloak and sneak into the town.</h2>
+        <div class="stats">
+          <h1>Days Until Raid: 10</h1>
+          <h1>Gold:</h1>
+          <h1>Souls:</h1>
         </div>
-        <h1>Key</h1>
-        <h1>
-          X = Empty <br />
-          E = Ergonia <br />
-          S = Sicordi <br />
-          B = Old Bavaria
-        </h1>
+
+        <button>Mine</button>
+        <!-- Mining minigame -->
+
+        <div class="mine-section"></div>
+        <button>Barter</button>
+
+        <!--Inventory-->
+        <div class="barter-section"></div>
+        <button>Witch</button>
+
+        <!-- Where you craft/buy monsters -->
+        <div class="witch-section"></div>
       </div>
+
+      <!--Map and stats, purchase options for monsters-->
+      <div class="map-section">
+        <div class="stats">
+          <h1>Days Until Raid: 10</h1>
+          <h1>Gold:</h1>
+          <h1>Souls:</h1>
+        </div>
+        <div class="map-ui">
+          <div class="map-container">
+            <div class="grid-item" id="grid-item-1"></div>
+            <div class="grid-item" id="grid-item-2"></div>
+            <div class="grid-item" id="grid-item-3"></div>
+            <div class="grid-item" id="grid-item-4"></div>
+            <div class="grid-item" id="grid-item-5"></div>
+            <div class="grid-item" id="grid-item-6"></div>
+            <div class="grid-item" id="grid-item-7"></div>
+            <div class="grid-item" id="grid-item-8"></div>
+            <div class="grid-item" id="grid-item-9"></div>
+          </div>
+          <h1>Key</h1>
+          <h1>
+            X = Empty <br />
+            G = Gold <br />
+            *Units can not move diagonally
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section class="help-section">
+      <h1>Help</h1>
+      <p>Every set of days there is a raid where invaders will attack.</p>
+      <p>There are a few resources, gold, minerals and souls</p>
+      <p>
+        Souls are earned by defeating knights and are the only resource
+        maintained after a game is over.
+      </p>
     </section>
 
     <script src="script.js"></script>

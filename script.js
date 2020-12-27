@@ -1,3 +1,10 @@
+/* Game Rules 
+Every set up raid days, knights/adventurers show up to get the treasure
+Difficulty determines how often there are raids, also determines loot drops
+Amount of gold in the stash determines 
+
+*/
+
 //Dom variables
 const startSection = document.querySelector(".start");
 const locationSection = document.querySelector(".country");
@@ -10,18 +17,21 @@ const storyP = document.querySelector("#story-p");
 const hud = document.querySelector("#hud");
 //Map
 const mapSection = document.querySelector(".map-section");
+const townSection = document.querySelector(".town-section");
 const mapGrid = document.querySelectorAll(".grid-item");
 //Slider buttons
 const rightArrow = document.querySelector("#arrow-right");
 //Game buttons
 const map = document.querySelector("#map");
+const town = document.querySelector("#town");
 
 //Game variables
 let card = 1;
 let sCounter = 0;
 let faction = 0;
 let days = 0;
-let dp = 0; //Dungeon points
+let souls = 0; //Dungeon points
+let gold = 0;
 
 //Functions
 const atStart = () => {
@@ -29,6 +39,7 @@ const atStart = () => {
   gameSection.style.display = "none";
   hud.style.display = "none";
   mapSection.style.display = "none";
+  townSection.style.display = "none";
 };
 
 //Picks faction
@@ -57,11 +68,17 @@ const pickedFaction = () => {
 
 //Procedural Generation
 const proceduralMapGen = () => {
-  let eStart = Math.floor(Math.random() * 8 + 0);
+  let eStart = Math.floor(Math.random() * 9 + 0);
 
   //Checks to make sure entrance is on the outside
-  while (eStart == 4) {
-    eStart = Math.floor(Math.random() * 8 + 0);
+  while (
+    eStart == 4 ||
+    eStart == 1 ||
+    eStart == 3 ||
+    eStart == 5 ||
+    eStart == 7
+  ) {
+    eStart = Math.floor(Math.random() * 9 + 0);
   }
 
   for (let i = 0; i < mapGrid.length; i++) {
@@ -71,8 +88,21 @@ const proceduralMapGen = () => {
     }
   }
 
-  mapGrid[4].innerHTML = "G";
-  mapGrid[4].style.color = "#e74c3c";
+  //Places Gold at the other side
+  if (eStart == 0) {
+    mapGrid[8].innerHTML = "G";
+    mapGrid[8].style.color = "#e74c3c";
+  } else if (eStart == 2) {
+    mapGrid[6].innerHTML = "G";
+    mapGrid[6].style.color = "#e74c3c";
+  } else if (eStart == 6) {
+    mapGrid[2].innerHTML = "G";
+    mapGrid[2].style.color = "#e74c3c";
+  } else if (eStart == 8) {
+    mapGrid[0].innerHTML = "G";
+    mapGrid[0].style.color = "#e74c3c";
+    mapGrid[eStart].innerHTML = "E";
+  }
 };
 
 //Event listeners
@@ -120,7 +150,16 @@ card3.addEventListener("click", () => {
 //HUD buttons
 map.addEventListener("click", () => {
   proceduralMapGen();
+  //Change this to flex if you want the divs side by side
   mapSection.style.display = "grid";
+  townSection.style.display = "none";
+  hud.style.display = "none";
+});
+
+town.addEventListener("click", () => {
+  proceduralMapGen();
+  mapSection.style.display = "none";
+  townSection.style.display = "flex";
   hud.style.display = "none";
 });
 
@@ -131,4 +170,4 @@ cardPicker();
 //Game loop
 window.setInterval(() => {
   storyCounter();
-}, 2000);
+}, 1000);
