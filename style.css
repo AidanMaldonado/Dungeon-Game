@@ -25,6 +25,15 @@ button:hover {
   background: white;
 }
 
+/* Back Button */
+.back-btn {
+  border: 2px solid white;
+  color: white;
+  background: black;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+}
+
 section {
   min-height: 100vh;
 }
@@ -148,4 +157,13 @@ section {
 
 .town-section p {
   width: 100%;
+}
+
+/* Help Section */
+.help-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100vh;
 }

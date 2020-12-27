@@ -1,7 +1,14 @@
 /* Game Rules 
 Every set up raid days, knights/adventurers show up to get the treasure
 Difficulty determines how often there are raids, also determines loot drops
-Amount of gold in the stash determines 
+Amount of gold in the stash determines what levels of loot the heroes bring in
+Loot can be captured and bartered at the town
+Gems can be mined at the mine in town, which can be sold or used to make special monsters
+Monsters must be made at the witch
+Every x amount of days there is a raid.
+
+TODO:
+add difficulty system to raid days func
 
 */
 
@@ -9,7 +16,11 @@ Amount of gold in the stash determines
 const startSection = document.querySelector(".start");
 const locationSection = document.querySelector(".country");
 const gameSection = document.querySelector(".game");
+const helpSection = document.querySelector(".help-section");
+//Buttons
 const startBtn = document.querySelector("#start-btn");
+const helpBtn = document.querySelector("#help-btn");
+//Cards
 const card1 = document.querySelector("#faction1");
 const card2 = document.querySelector("#faction2");
 const card3 = document.querySelector("#faction3");
@@ -24,14 +35,19 @@ const rightArrow = document.querySelector("#arrow-right");
 //Game buttons
 const map = document.querySelector("#map");
 const town = document.querySelector("#town");
+//Stats
+const daysDisplay = document.querySelector("#days-display");
+const backBtn = document.querySelectorAll(".back-btn");
 
 //Game variables
 let card = 1;
 let sCounter = 0;
 let faction = 0;
-let days = 0;
+let days = 0; //For final stats/highscores
+let daysUntilRaid = 10;
 let souls = 0; //Dungeon points
 let gold = 0;
+let raid = false; //Determines if a raid is currently happening
 
 //Functions
 const atStart = () => {
@@ -40,6 +56,18 @@ const atStart = () => {
   hud.style.display = "none";
   mapSection.style.display = "none";
   townSection.style.display = "none";
+  helpSection.style.display = "none";
+};
+
+//Creates back button functionality
+const backBtnFunc = () => {
+  for (let i = 0; i < backBtn.length; i++) {
+    backBtn[i].addEventListener("click", () => {
+      hud.style.display = "flex";
+      mapSection.style.display = "none";
+      townSection.style.display = "none";
+    });
+  }
 };
 
 //Picks faction
@@ -49,7 +77,18 @@ const cardPicker = () => {
   card3.style.display = "none";
 };
 
-//Changes vars based on faction picked
+//Determines how many days until raid
+//Change this so it works with difficulty.
+const raidCalculator = () => {
+  if (daysUntilRaid == 0) {
+    daysUntilRaid = Math.floor(Math.random() * 5 + 10);
+  } else {
+    daysUntilRaid -= 1;
+  }
+
+  //Displays the days until raid
+  daysDisplay.innerHTML = `Days Until Raid: ${daysUntilRaid}`;
+};
 
 //Determines the time the story element is displayed after picking a faction
 const storyCounter = () => {
@@ -163,11 +202,20 @@ town.addEventListener("click", () => {
   hud.style.display = "none";
 });
 
+//Triggers help features
+helpBtn.addEventListener("click", () => {
+  startSection.style.display = "none";
+  helpSection.style.display = "flex";
+});
+
 //Function calls
 atStart();
 cardPicker();
+backBtnFunc();
 
 //Game loop
 window.setInterval(() => {
+  days += 1; //For final stats
+  raidCalculator();
   storyCounter();
 }, 1000);
