@@ -100,9 +100,11 @@ const storyCounter = () => {
   }
 };
 
+//Generates map, goes to hud
 const pickedFaction = () => {
   locationSection.style.display = "none";
   gameSection.style.display = "flex";
+  proceduralMapGen();
 };
 
 //Procedural Generation
@@ -188,7 +190,6 @@ card3.addEventListener("click", () => {
 
 //HUD buttons
 map.addEventListener("click", () => {
-  proceduralMapGen();
   //Change this to flex if you want the divs side by side
   mapSection.style.display = "grid";
   townSection.style.display = "none";

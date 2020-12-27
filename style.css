@@ -34,6 +34,10 @@ button:hover {
   font-size: 1.2rem;
 }
 
+.town-section .back-btn {
+  width: 40%;
+}
+
 section {
   min-height: 100vh;
 }
